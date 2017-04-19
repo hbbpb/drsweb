@@ -18,7 +18,7 @@
                 <!-- Pages -->
                 <f7-pages>
                     <f7-page login-screen>
-                        <f7-login-screen-title>Login</f7-login-screen-title>
+                        <f7-login-screen-title>用户登录</f7-login-screen-title>
                         <f7-list form>
                             <f7-list-item>
                                 <f7-label>Username</f7-label>
