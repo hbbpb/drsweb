@@ -8,7 +8,7 @@ export default [
     component: require('./assets/vue/pages/about.vue')
   },
   {
-    path: '/form/',
+    path: '/search/',
     component: require('./assets/vue/pages/form.vue')
   },
   {
