@@ -1,7 +1,7 @@
 export default [
   {
-    path: '/home/',
-    component: require('./assets/vue/pages/home.vue')
+    path: '/my/',
+    component: require('./assets/vue/pages/my.vue')
   },
   {
     path: '/about/',
