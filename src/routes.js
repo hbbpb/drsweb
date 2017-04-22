@@ -9,7 +9,7 @@ export default [
   },
   {
     path: '/search/',
-    component: require('./assets/vue/pages/form.vue')
+    component: require('./assets/vue/pages/search.vue')
   },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
