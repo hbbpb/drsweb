@@ -14,7 +14,7 @@
                         <f7-list>
                             <f7-list-item link="/search/" title="文献检索" link-view="#main-view"
                                           link-close-panel></f7-list-item>
-                            <f7-list-item link="/my/" title="我的收藏" link-view="#main-view"
+                            <f7-list-item link="/favorite/" title="我的收藏" link-view="#main-view"
                                           link-close-panel></f7-list-item>
                             <f7-list-item link="/setting/" title="系统设置" link-view="#main-view"
                                           link-close-panel></f7-list-item>
