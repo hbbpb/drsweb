@@ -45,9 +45,9 @@
                             </f7-list-item>
                         </f7-list>
                         <f7-list>
-                            <f7-list-button title="Sign In" close-login-screen></f7-list-button>
+                            <f7-list-button title="登录" close-login-screen></f7-list-button>
                             <f7-list-label>
-                                <p>新用户注册</p>
+                                <a href="/signup/">新用户注册</a>
                             </f7-list-label>
                         </f7-list>
                     </f7-page>

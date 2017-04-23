@@ -1,5 +1,9 @@
 export default [
   {
+    path: '/signup/',
+    component: require('./assets/vue/pages/signup.vue')
+  },
+  {
     path: '/search/',
     component: require('./assets/vue/pages/search.vue')
   },
