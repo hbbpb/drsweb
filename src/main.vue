@@ -69,46 +69,42 @@
                 <!-- Pages -->
                 <f7-pages>
                     <f7-page>
-                        <!-- Search bar -->
-                        <f7-searchbar
-                                cancel-link="Cancel"
-                                search-list="#search-list"
-                                placeholder="Search in items"
-                                :clear-button="true"
-                        ></f7-searchbar>
-
-                        <!-- Will be visible if there is no any results found, defined by "searchbar-not-found" class -->
-                        <f7-list class="searchbar-not-found">
-                            <f7-list-item title="Nothing found"></f7-list-item>
-                        </f7-list>
-
-                        <!-- Search-through list -->
-                        <f7-list media-list class="searchbar-found" id="search-list">
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《人民的名义》" subtitle="周梅森" text="北京十月文艺出版社" link="/about/"></f7-list-item>
-                            <f7-list-item title="《大秦帝国》" subtitle="孙皓晖" text="河南文艺出版社" link="/about/"></f7-list-item>
-                        </f7-list>
+                        <f7-grid no-gutter>
+                            <f7-col width="100">
+                                <div class="title">
+                                    数字参考咨询系统
+                                </div>
+                            </f7-col>
+                        </f7-grid>
+                        <f7-grid no-gutter>
+                            <f7-col width="100">
+                                <div class="banner"></div>
+                            </f7-col>
+                        </f7-grid>
+                        <f7-grid no-gutter>
+                            <f7-col width="50">
+                                <div class="menu-card card1">
+                                    文献咨询
+                                </div>
+                            </f7-col>
+                            <f7-col width="50">
+                                <div class="menu-card card2">
+                                    知识咨询
+                                </div>
+                            </f7-col>
+                        </f7-grid>
+                        <f7-grid no-gutter>
+                            <f7-col width="50">
+                                <div class="menu-card card3">
+                                    表单咨询
+                                </div>
+                            </f7-col>
+                            <f7-col width="50">
+                                <div class="menu-card card4">
+                                    服务指南
+                                </div>
+                            </f7-col>
+                        </f7-grid>
                     </f7-page>
                 </f7-pages>
             </f7-view>
@@ -120,3 +116,46 @@
 <script>
     export default {}
 </script>
+
+<style scoped>
+    .title {
+        height: 59px;
+        color: white;
+        background: #005ea8;
+        line-height: 59px;
+        text-align: center;
+        font-size: 25px;
+        display: none;
+    }
+
+    .banner {
+        height: 250px;
+        background-image: url("./assets/static/images/banner1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .menu-card {
+        height: 85px;
+        color: white;
+        line-height: 85px;
+        text-align: center;
+    }
+
+    .card1 {
+        background: linear-gradient(to bottom, #f9aa2f, #fc9408);
+    }
+
+    .card2 {
+        background: linear-gradient(to bottom, #514a4c, #302c33);
+    }
+
+    .card3 {
+        background: linear-gradient(to bottom, #d74428, #ce2302);
+    }
+
+    .card4 {
+        background: linear-gradient(to bottom, #3dc4bd, #20b4b5);
+    }
+</style>
