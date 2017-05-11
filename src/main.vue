@@ -12,15 +12,9 @@
                 <f7-pages>
                     <f7-page>
                         <f7-list>
-                            <f7-list-item link="/search/" title="文献检索" link-view="#main-view"
-                                          link-close-panel></f7-list-item>
-                            <f7-list-item link="/favorite/" title="我的收藏" link-view="#main-view"
-                                          link-close-panel></f7-list-item>
-                            <f7-list-item link="/setting/" title="系统设置" link-view="#main-view"
-                                          link-close-panel></f7-list-item>
-                            <f7-list-item link="/help/" title="帮助" link-view="#main-view"
-                                          link-close-panel></f7-list-item>
-                            <f7-list-item link="/about/" title="关于" link-view="#main-view"
+                            <f7-list-item v-for="menu in menuList" :key="menu.id" v-bind:link="menu.link"
+                                          v-bind:title="menu.title"
+                                          link-view="#main-view"
                                           link-close-panel></f7-list-item>
                         </f7-list>
                     </f7-page>
@@ -60,7 +54,7 @@
             <f7-view id="main-view" navbar-through :dynamic-navbar="true" main>
                 <!-- Navbar -->
                 <f7-navbar>
-                    <f7-nav-center sliding>图书馆参考咨询服务</f7-nav-center>
+                    <f7-nav-center sliding>{{title}}</f7-nav-center>
                     <f7-nav-right>
                         <f7-link icon="icon-bars" open-panel="right"></f7-link>
                     </f7-nav-right>
@@ -69,42 +63,57 @@
                 <!-- Pages -->
                 <f7-pages>
                     <f7-page>
-                        <f7-grid no-gutter>
-                            <f7-col width="100">
-                                <div class="title">
-                                    数字参考咨询系统
-                                </div>
-                            </f7-col>
-                        </f7-grid>
-                        <f7-grid no-gutter>
-                            <f7-col width="100">
-                                <div class="banner"></div>
-                            </f7-col>
-                        </f7-grid>
-                        <f7-grid no-gutter>
-                            <f7-col width="50">
-                                <div class="menu-card card1">
-                                    文献咨询
-                                </div>
-                            </f7-col>
-                            <f7-col width="50">
-                                <div class="menu-card card2">
-                                    知识咨询
-                                </div>
-                            </f7-col>
-                        </f7-grid>
-                        <f7-grid no-gutter>
-                            <f7-col width="50">
-                                <div class="menu-card card3">
-                                    表单咨询
-                                </div>
-                            </f7-col>
-                            <f7-col width="50">
-                                <div class="menu-card card4">
-                                    服务指南
-                                </div>
-                            </f7-col>
-                        </f7-grid>
+                        <div>
+                            <f7-grid no-gutter>
+                                <f7-col width="100">
+                                    <div class="title">
+                                        数字参考咨询系统
+                                    </div>
+                                </f7-col>
+                            </f7-grid>
+                            <f7-grid no-gutter>
+                                <f7-col width="100">
+                                    <div class="banner"></div>
+                                </f7-col>
+                            </f7-grid>
+                            <f7-grid no-gutter>
+                                <f7-col width="50">
+                                    <div class="menu-card card1">
+                                        问答咨询
+                                    </div>
+                                </f7-col>
+                                <f7-col width="50">
+                                    <div class="menu-card card2">
+                                        查询记录
+                                    </div>
+                                </f7-col>
+                            </f7-grid>
+                            <f7-grid no-gutter>
+                                <f7-col width="50">
+                                    <div class="menu-card card3" v-on:click="open">
+                                        文献咨询
+                                    </div>
+                                </f7-col>
+                                <f7-col width="50">
+                                    <div class="menu-card card4">
+                                        知识咨询
+                                    </div>
+                                </f7-col>
+                            </f7-grid>
+                            <f7-grid no-gutter>
+                                <f7-col width="50">
+                                    <div class="menu-card card5">
+                                        表单咨询
+                                    </div>
+                                </f7-col>
+                                <f7-col width="50">
+                                    <div class="menu-card card6">
+                                        服务指南
+                                    </div>
+                                </f7-col>
+                            </f7-grid>
+                        </div>
+                        <iframe src="http://m.5read.com/index.jspx?xc=5&schoolid=72"></iframe>
                     </f7-page>
                 </f7-pages>
             </f7-view>
@@ -114,7 +123,50 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        data: function () {
+            return {
+                title: '图书馆参考咨询服务',
+                menuList: [
+                    {
+                        id: 0,
+                        title: '问答咨询',
+                        link: ''
+                    },
+                    {
+                        id: 1,
+                        title: '查询记录',
+                        link: ''
+                    },
+                    {
+                        id: 2,
+                        title: '文献咨询',
+                        link: '/literature/'
+                    },
+                    {
+                        id: 3,
+                        title: '知识咨询',
+                        link: ''
+                    },
+                    {
+                        id: 4,
+                        title: '表单咨询',
+                        link: ''
+                    },
+                    {
+                        id: 5,
+                        title: '服务指南',
+                        link: ''
+                    }
+                ]
+            }
+        },
+        methods: {
+            open: function () {
+                window.open("http://m.5read.com/index.jspx?xc=5&schoolid=72", "_system")
+            }
+        }
+    }
 </script>
 
 <style scoped>
@@ -152,10 +204,24 @@
     }
 
     .card3 {
-        background: linear-gradient(to bottom, #d74428, #ce2302);
+        background: linear-gradient(to bottom, #3dc4bd, #20b4b5);
     }
 
     .card4 {
-        background: linear-gradient(to bottom, #3dc4bd, #20b4b5);
+        background: linear-gradient(to bottom, #d74428, #ce2302);
+    }
+
+    .card5 {
+        background: linear-gradient(to bottom, #5f7285, #3c5f6d);
+    }
+
+    .card6 {
+        background: linear-gradient(to bottom, #00658a, #014c76)
+    }
+
+    iframe {
+        display: none;
+        width: 100%;
+        height: 100%;
     }
 </style>
