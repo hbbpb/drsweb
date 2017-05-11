@@ -77,39 +77,12 @@
                                 </f7-col>
                             </f7-grid>
                             <f7-grid no-gutter>
-                                <f7-col width="50">
-                                    <div class="menu-card card1">
-                                        问答咨询
-                                    </div>
-                                </f7-col>
-                                <f7-col width="50">
-                                    <div class="menu-card card2">
-                                        查询记录
-                                    </div>
-                                </f7-col>
-                            </f7-grid>
-                            <f7-grid no-gutter>
-                                <f7-col width="50">
-                                    <div class="menu-card card3" v-on:click="open">
-                                        文献咨询
-                                    </div>
-                                </f7-col>
-                                <f7-col width="50">
-                                    <div class="menu-card card4">
-                                        知识咨询
-                                    </div>
-                                </f7-col>
-                            </f7-grid>
-                            <f7-grid no-gutter>
-                                <f7-col width="50">
-                                    <div class="menu-card card5">
-                                        表单咨询
-                                    </div>
-                                </f7-col>
-                                <f7-col width="50">
-                                    <div class="menu-card card6">
-                                        服务指南
-                                    </div>
+                                <f7-col width="50" v-for="menu in menuList" :key="menu.id" class="menu-card">
+                                    <a v-bind:href="menu.link">
+                                        <div class="menu-card-item">
+                                            {{menu.title}}
+                                        </div>
+                                    </a>
                                 </f7-col>
                             </f7-grid>
                         </div>
@@ -188,40 +161,34 @@
         background-position: center center;
     }
 
-    .menu-card {
+    .menu-card-item {
         height: 85px;
         color: white;
         line-height: 85px;
         text-align: center;
     }
 
-    .card1 {
+    .menu-card:nth-of-type(1) {
         background: linear-gradient(to bottom, #f9aa2f, #fc9408);
     }
 
-    .card2 {
+    .menu-card:nth-of-type(2) {
         background: linear-gradient(to bottom, #514a4c, #302c33);
     }
 
-    .card3 {
+    .menu-card:nth-of-type(3) {
         background: linear-gradient(to bottom, #3dc4bd, #20b4b5);
     }
 
-    .card4 {
+    .menu-card:nth-of-type(4) {
         background: linear-gradient(to bottom, #d74428, #ce2302);
     }
 
-    .card5 {
+    .menu-card:nth-of-type(5) {
         background: linear-gradient(to bottom, #5f7285, #3c5f6d);
     }
 
-    .card6 {
+    .menu-card:nth-of-type(6) {
         background: linear-gradient(to bottom, #00658a, #014c76)
-    }
-
-    iframe {
-        display: none;
-        width: 100%;
-        height: 100%;
     }
 </style>
