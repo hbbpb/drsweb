@@ -9,7 +9,7 @@
     export default {
         data: function () {
             return {
-                title: '文献咨询'
+                title: ''
             }
         }
     }
