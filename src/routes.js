@@ -4,6 +4,10 @@ export default [
     component: require('./assets/vue/pages/signup.vue')
   },
   {
+    path: '/literature/',
+    component: require('./assets/vue/pages/literature.vue')
+  },
+  {
     path: '/search/',
     component: require('./assets/vue/pages/search.vue')
   },

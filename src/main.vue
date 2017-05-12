@@ -86,7 +86,6 @@
                                 </f7-col>
                             </f7-grid>
                         </div>
-                        <iframe src="http://m.5read.com/index.jspx?xc=5&schoolid=72"></iframe>
                     </f7-page>
                 </f7-pages>
             </f7-view>
@@ -129,16 +128,12 @@
                     {
                         id: 5,
                         title: '服务指南',
-                        link: ''
+                        link: '/about/'
                     }
                 ]
             }
         },
-        methods: {
-            open: function () {
-                window.open("http://m.5read.com/index.jspx?xc=5&schoolid=72", "_system")
-            }
-        }
+        methods: {}
     }
 </script>
 
