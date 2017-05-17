@@ -4,10 +4,10 @@
         <f7-list form>
             <f7-list-item>
                 <f7-label>用户名</f7-label>
-                <f7-input type="text" placeholder="Name" v-model="userName"></f7-input>
+                <f7-input type="text" placeholder="Name" v-model="name"></f7-input>
             </f7-list-item>
             <f7-list-item>
-                <f7-label>E-mail</f7-label>
+                <f7-label>邮件</f7-label>
                 <f7-input type="email" placeholder="E-mail" v-model="email"></f7-input>
             </f7-list-item>
             <f7-list-item>
@@ -16,7 +16,11 @@
             </f7-list-item>
         </f7-list>
 
-        <f7-button color="green" @click="signup">注册</f7-button>
+        <ul>
+            <li v-for="error in errors" class="error">{{error}}</li>
+        </ul>
+
+        <f7-button @click="signup">注册</f7-button>
 
     </f7-page>
 </template>
@@ -25,25 +29,52 @@
     export default {
         data: function () {
             return {
-                userName: '',
+                name: '',
                 email: '',
-                password: ''
+                password: '',
+                errors: []
             }
         },
         methods: {
             signup: function () {
-                this.$http.post('signup', {
-                    userName: this.userName,
-                    email: this.email,
-                    password: this.password
-                }).then(response => {
-                    // success callback
-                    console.log(response)
-                }, error => {
-                    // error callback
-                    console.error(error);
-                });
+                if (this.validate()) {
+                    this.$http.post('signup', {
+                        mame: this.name,
+                        email: this.email,
+                        password: this.password
+                    }).then(response => {
+                        // success callback
+                        console.log(response)
+                    }, error => {
+                        // error callback
+                        console.error(error)
+                    });
+                }
+            },
+            validate: function () {
+                this.errors = [];
+                var name = this.name.trim()
+                var email = this.email.trim()
+                var password = this.password.trim()
+
+                if (!name.length) {
+                    this.errors.push('用户名不能为空。')
+                }
+                if (!email.length) {
+                    this.errors.push('邮件不能为空。')
+                }
+                if (!password.length) {
+                    this.errors.push('密码不能为空。')
+                }
+                return !this.errors.length
             }
         }
     }
 </script>
+
+<style scoped>
+    .error {
+        color: red;
+        font-size: 12px;
+    }
+</style>
