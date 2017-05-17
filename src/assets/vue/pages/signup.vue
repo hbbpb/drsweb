@@ -39,16 +39,16 @@
             signup: function () {
                 if (this.validate()) {
                     this.$http.post('signup', {
-                        mame: this.name,
+                        name: this.name,
                         email: this.email,
                         password: this.password
-                    }).then(response => {
-                        // success callback
-                        console.log(response)
-                    }, error => {
-                        // error callback
-                        console.error(error)
-                    });
+                    })
+                        .then(response => {
+                            console.log(response)
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        });
                 }
             },
             validate: function () {
