@@ -5,20 +5,29 @@
             <f7-list form>
                 <f7-list-item>
                     <f7-label>用户名</f7-label>
-                    <f7-input type="text" placeholder="Name" v-model="name"></f7-input>
+                    <f7-input type="text" placeholder="Name" v-model="name"
+                              v-validate="'required|alpha_num|min:3|max:30'"
+                              name="name"></f7-input>
                 </f7-list-item>
                 <f7-list-item>
                     <f7-label>邮件</f7-label>
-                    <f7-input type="email" placeholder="E-mail" v-model="email"></f7-input>
+                    <f7-input type="email" placeholder="Email" v-model="email" v-validate="'required|email|max:30'"
+                              name="email"></f7-input>
+
                 </f7-list-item>
                 <f7-list-item>
                     <f7-label>密码</f7-label>
-                    <f7-input type="password" placeholder="Password" v-model="password"></f7-input>
+                    <f7-input type="password" placeholder="Password" v-model="password" name="password"
+                              v-validate="'required|min:6|max:30'"></f7-input>
                 </f7-list-item>
             </f7-list>
 
+
             <ul>
-                <li v-for="error in errors" class="error">{{error}}</li>
+                <li v-show="errors.has('name')" class="is-danger">{{ errors.first('name') }}</li>
+                <li v-show="errors.has('email')" class="is-danger">{{ errors.first('email') }}</li>
+                <li v-show="errors.has('password')" class="is-danger">{{ errors.first('password') }}</li>
+                <li v-show="errors.has('conflict')" class="is-danger">{{ errors.first('conflict') }}</li>
             </ul>
 
             <f7-button @click="signup">注册</f7-button>
@@ -33,19 +42,19 @@
 </template>
 
 <script>
+    import zh_CN from 'vee-validate/dist/locale/zh_CN'
     export default {
         data: function () {
             return {
                 name: '',
                 email: '',
                 password: '',
-                errors: [],
                 logined: false
             }
         },
         methods: {
             signup: function () {
-                if (this.validate()) {
+                this.$validator.validateAll().then(() => {
                     this.$http.post('signup', {
                         name: this.name,
                         email: this.email,
@@ -54,38 +63,41 @@
                         .then(response => {
                             console.log(response)
                             this.logined = true
+//                            this.$router.back()
                         })
                         .catch(error => {
                             console.error(error)
                             if (error.status === 409) {
-                                this.errors.push(error.bodyText)
+                                this.errors.add('conflict', '该用户名或邮件已被注册.')
                             }
                         });
-                }
-            },
-            validate: function () {
-                this.errors = [];
-                var name = this.name.trim()
-                var email = this.email.trim()
-                var password = this.password.trim()
+                }).catch(() => {
 
-                if (!name.length) {
-                    this.errors.push('用户名不能为空。')
-                }
-                if (!email.length) {
-                    this.errors.push('邮件不能为空。')
-                }
-                if (!password.length) {
-                    this.errors.push('密码不能为空。')
-                }
-                return !this.errors.length
+                })
             }
+        },
+        created(){
+            this.$validator.setLocale('zh_CN');
+            this.$validator.updateDictionary({
+                zh_CN: {
+                    messages: zh_CN.messages,
+                    attributes: {
+                        name: '用户名',
+                        email: '邮件',
+                        password: '密码'
+                    }
+                }
+            });
         }
     }
 </script>
 
 <style scoped>
-    .error {
+    .list-block {
+        margin: 43px 0 0 0;
+    }
+
+    .is-danger {
         color: red;
         font-size: 12px;
     }
