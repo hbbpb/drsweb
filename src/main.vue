@@ -31,15 +31,24 @@
                         <f7-list form>
                             <f7-list-item>
                                 <f7-label>用户名</f7-label>
-                                <f7-input name="username" placeholder="Username" type="text"></f7-input>
+                                <f7-input name="username" placeholder="Username" type="text"
+                                          v-validate="'required'"
+                                          v-model="username"></f7-input>
                             </f7-list-item>
                             <f7-list-item>
                                 <f7-label>密码</f7-label>
-                                <f7-input name="password" type="password" placeholder="Password"></f7-input>
+                                <f7-input name="password" type="password" placeholder="Password"
+                                          v-validate="'required'"
+                                          v-model="password"></f7-input>
                             </f7-list-item>
                         </f7-list>
+                        <ul>
+                            <li v-show="errors.has('username')" class="is-danger">{{ errors.first('username') }}</li>
+                            <li v-show="errors.has('password')" class="is-danger">{{ errors.first('password') }}</li>
+                            <li v-show="errors.has('login')" class="is-danger">{{ errors.first('login') }}</li>
+                        </ul>
                         <f7-list>
-                            <f7-list-button title="登录" close-login-screen></f7-list-button>
+                            <f7-list-button title="登录" @click="login"></f7-list-button>
                             <f7-list-label>
                                 <a href="/signup/">新用户注册</a>
                             </f7-list-label>
@@ -95,10 +104,13 @@
 </template>
 
 <script>
+    import zh_CN from 'vee-validate/dist/locale/zh_CN'
     export default {
         data: function () {
             return {
                 title: '图书馆参考咨询服务',
+                username: '',
+                password: '',
                 menuList: [
                     {
                         id: 0,
@@ -133,7 +145,42 @@
                 ]
             }
         },
-        methods: {}
+        methods: {
+            login: function () {
+                this.$validator.validateAll().then(() => {
+                    this.$http.post('auth/login', {
+                        username: this.username,
+                        password: this.password
+                    })
+                        .then(response => {
+                            console.log(response)
+                            this.logined = true
+                            this.$f7.closeModal('#login-screen')
+                        })
+                        .catch(error => {
+                            console.error(error)
+                            if (error.status === 401) {
+                                this.errors.add('login', '用户名或密码不正确.')
+                            }
+                        });
+                }).catch(() => {
+
+                })
+            }
+        },
+        created(){
+            this.$validator.setLocale('zh_CN');
+            this.$validator.updateDictionary({
+                zh_CN: {
+                    messages: zh_CN.messages,
+                    attributes: {
+                        username: '用户名',
+                        email: '邮件',
+                        password: '密码'
+                    }
+                }
+            });
+        }
     }
 </script>
 

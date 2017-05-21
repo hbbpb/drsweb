@@ -97,11 +97,6 @@
         margin: 43px 0 0 0;
     }
 
-    .is-danger {
-        color: red;
-        font-size: 12px;
-    }
-
     .greeting {
         font-size: 15px;
         text-align: center;
