@@ -5,9 +5,9 @@
             <f7-list form>
                 <f7-list-item>
                     <f7-label>用户名</f7-label>
-                    <f7-input type="text" placeholder="Name" v-model="name"
+                    <f7-input type="text" placeholder="Name" v-model="username"
                               v-validate="'required|alpha_num|min:3|max:30'"
-                              name="name"></f7-input>
+                              name="username"></f7-input>
                 </f7-list-item>
                 <f7-list-item>
                     <f7-label>邮件</f7-label>
@@ -24,7 +24,7 @@
 
 
             <ul>
-                <li v-show="errors.has('name')" class="is-danger">{{ errors.first('name') }}</li>
+                <li v-show="errors.has('username')" class="is-danger">{{ errors.first('username') }}</li>
                 <li v-show="errors.has('email')" class="is-danger">{{ errors.first('email') }}</li>
                 <li v-show="errors.has('password')" class="is-danger">{{ errors.first('password') }}</li>
                 <li v-show="errors.has('conflict')" class="is-danger">{{ errors.first('conflict') }}</li>
@@ -46,7 +46,7 @@
     export default {
         data: function () {
             return {
-                name: '',
+                username: '',
                 email: '',
                 password: '',
                 logined: false
@@ -55,8 +55,8 @@
         methods: {
             signup: function () {
                 this.$validator.validateAll().then(() => {
-                    this.$http.post('signup', {
-                        name: this.name,
+                    this.$http.post('auth/register', {
+                        username: this.username,
                         email: this.email,
                         password: this.password
                     })
@@ -82,7 +82,7 @@
                 zh_CN: {
                     messages: zh_CN.messages,
                     attributes: {
-                        name: '用户名',
+                        username: '用户名',
                         email: '邮件',
                         password: '密码'
                     }
