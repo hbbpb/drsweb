@@ -32,7 +32,6 @@ Vue.use(VueResource)
 Vue.use(VeeValidate)
 
 Vue.http.options.root = '/api'
-// Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk'
 
 // Init App
 new Vue({

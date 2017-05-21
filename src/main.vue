@@ -105,6 +105,8 @@
 
 <script>
     import zh_CN from 'vee-validate/dist/locale/zh_CN'
+    import Vue from 'vue'
+
     export default {
         data: function () {
             return {
@@ -160,6 +162,7 @@
                         .then(response => {
                             console.log(response)
                             this.$root.logined = true
+                            Vue.http.headers.common['Authorization'] = response.data.token
                             this.$f7.closeModal('#login-screen')
                         })
                         .catch(error => {
