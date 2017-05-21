@@ -145,6 +145,11 @@
                 ]
             }
         },
+        computed: {
+            logined: function () {
+                return this.$root.logined
+            }
+        },
         methods: {
             login: function () {
                 this.$validator.validateAll().then(() => {
@@ -154,7 +159,7 @@
                     })
                         .then(response => {
                             console.log(response)
-                            this.logined = true
+                            this.$root.logined = true
                             this.$f7.closeModal('#login-screen')
                         })
                         .catch(error => {
