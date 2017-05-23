@@ -64,7 +64,7 @@
             }
         },
         created(){
-            this.$validator.setLocale('zh_CN');
+            this.$validator.setLocale('zh_CN')
             this.$validator.updateDictionary({
                 zh_CN: {
                     messages: zh_CN.messages,
@@ -73,7 +73,7 @@
                         description: '问题描述'
                     }
                 }
-            });
+            })
         }
     }
 </script>

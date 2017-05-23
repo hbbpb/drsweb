@@ -122,7 +122,7 @@
                     {
                         id: 1,
                         title: '查询记录',
-                        link: ''
+                        link: '/subject-list/'
                     },
                     {
                         id: 2,
@@ -170,14 +170,14 @@
                             if (error.status === 401) {
                                 this.errors.add('login', '用户名或密码不正确.')
                             }
-                        });
+                        })
                 }).catch(() => {
 
                 })
             }
         },
         created(){
-            this.$validator.setLocale('zh_CN');
+            this.$validator.setLocale('zh_CN')
             this.$validator.updateDictionary({
                 zh_CN: {
                     messages: zh_CN.messages,
@@ -187,7 +187,7 @@
                         password: '密码'
                     }
                 }
-            });
+            })
         }
     }
 </script>

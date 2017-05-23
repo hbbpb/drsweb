@@ -12,6 +12,10 @@ export default [
     component: require('./assets/vue/pages/subject.vue')
   },
   {
+    path: '/subject-list/',
+    component: require('./assets/vue/pages/subject-list.vue')
+  },
+  {
     path: '/literature/',
     component: require('./assets/vue/pages/literature.vue')
   },

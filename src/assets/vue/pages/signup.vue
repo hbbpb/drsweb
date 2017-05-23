@@ -70,14 +70,14 @@
                             if (error.status === 409) {
                                 this.errors.add('conflict', '该用户名或邮件已被注册.')
                             }
-                        });
+                        })
                 }).catch(() => {
 
                 })
             }
         },
         created(){
-            this.$validator.setLocale('zh_CN');
+            this.$validator.setLocale('zh_CN')
             this.$validator.updateDictionary({
                 zh_CN: {
                     messages: zh_CN.messages,
@@ -87,7 +87,7 @@
                         password: '密码'
                     }
                 }
-            });
+            })
         }
     }
 </script>
