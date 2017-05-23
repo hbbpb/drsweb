@@ -8,6 +8,10 @@ export default [
     component: require('./assets/vue/pages/signup.vue')
   },
   {
+    path: '/subject/',
+    component: require('./assets/vue/pages/subject.vue')
+  },
+  {
     path: '/literature/',
     component: require('./assets/vue/pages/literature.vue')
   },

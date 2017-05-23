@@ -117,7 +117,7 @@
                     {
                         id: 0,
                         title: '问答咨询',
-                        link: ''
+                        link: '/subject/'
                     },
                     {
                         id: 1,

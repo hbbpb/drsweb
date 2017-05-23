@@ -35,7 +35,7 @@
         <div v-else>
             <div class="greeting">注册成功！</div>
             <div class="back-button">
-                <a href="/">返回主页</a>
+                <f7-link @click="$router.back()">返回主页</f7-link>
             </div>
         </div>
     </f7-page>
