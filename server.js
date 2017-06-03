@@ -23,5 +23,4 @@ new WebpackDevServer(webpack(config), config.devServer)
       console.log(err)
     }
     console.log('Listening at localhost:' + env.port)
-    console.log('NODE_ENV: ' + process.env.NODE_ENV)
   })
