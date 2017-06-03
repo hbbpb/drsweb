@@ -9,9 +9,11 @@ const path = require('path'),
   ExtractTextPlugin = require("extract-text-webpack-plugin"),
 
   entryFile = path.join(__dirname, 'src/main.js'),
-  devServerPort = 8081
+  devServerPort = 8081,
+  proxyTarget = 'http://localhost:3100'
 
 let config = function (env) {
+  console.log(JSON.stringify(env))
   let returner = {
     entry: entryFile,
 
@@ -105,13 +107,14 @@ let config = function (env) {
         host: "0.0.0.0",
         proxy: {
           '/api': {
-            target: 'http://localhost:3100',
+            target: proxyTarget,
             secure: false
           }
         }
       }
       returner.plugins.push(new webpack.NamedModulesPlugin())
     } else if (typeof env.release !== 'undefined' && env.release) {
+      returner.devServer = env.devServer
       returner.plugins.push(new CleanPlugin("www", {
         root: path.join(__dirname, "."),
         dry: false,
