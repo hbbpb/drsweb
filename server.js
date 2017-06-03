@@ -1,7 +1,7 @@
 /*eslint no-console:0 */
 'use strict'
 var env = {
-  port: 18080,
+  port: process.env.PORT || 18080,
   release: true,
   devServer: {
     proxy: {
