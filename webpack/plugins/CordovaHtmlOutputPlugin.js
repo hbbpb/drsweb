@@ -6,7 +6,7 @@ function CordovaHtmlOutputPlugin() {
 CordovaHtmlOutputPlugin.prototype.apply = function (compiler) {
   compiler.plugin('compilation', (compilation) => {
     compilation.plugin('html-webpack-plugin-before-html-processing', function (htmlPluginData, callback) {
-      let $ = cheerio.load(htmlPluginData.html),
+      var $ = cheerio.load(htmlPluginData.html),
         cordovaJsFound = false
 
       $("script").each((index, element) => {
