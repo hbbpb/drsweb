@@ -1,4 +1,4 @@
-const path = require('path'),
+var path = require('path'),
   fs = require('fs'),
 
   webpack = require('webpack'),
@@ -12,9 +12,9 @@ const path = require('path'),
   devServerPort = 8081,
   proxyTarget = 'http://localhost:3100'
 
-let config = function (env) {
+var config = function (env) {
   console.log(JSON.stringify(env))
-  let returner = {
+  var returner = {
     entry: entryFile,
 
     resolve: {

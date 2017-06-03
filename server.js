@@ -1,6 +1,6 @@
 /*eslint no-console:0 */
 'use strict'
-const env = {
+var env = {
   port: 18080,
   release: true,
   devServer: {
@@ -12,9 +12,9 @@ const env = {
     }
   }
 }
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const config = require('./webpack.config')(env)
+var webpack = require('webpack')
+var WebpackDevServer = require('webpack-dev-server')
+var config = require('./webpack.config')(env)
 
 new WebpackDevServer(webpack(config), config.devServer)
   .listen(env.port, 'localhost', (err) => {
