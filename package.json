@@ -26,7 +26,7 @@
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.13.2",
     "svg-url-loader": "^2.0.2",
-    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglify-js": "^3.0.15",
     "uglifyjs-webpack-plugin": "^0.3.0",
     "url-loader": "^0.5.8",
     "vue-hot-reload-api": "^2.0.11",
