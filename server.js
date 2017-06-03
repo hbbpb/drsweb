@@ -4,13 +4,9 @@ const env = {
   port: 18080,
   release: true,
   devServer: {
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    host: "0.0.0.0",
     proxy: {
       '/api': {
-        target: 'https://drs-api.herokuapp.com',
+        target: 'http://drs-api.herokuapp.com',
         secure: false
       }
     }
