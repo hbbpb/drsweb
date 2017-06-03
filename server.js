@@ -4,7 +4,7 @@ var env = {
   port: process.env.PORT || 18080,
   release: true,
   devServer: {
-    disableHostCheck: true,
+    // disableHostCheck: true,
     proxy: {
       '/api': {
         target: 'https://drs-api.herokuapp.com',

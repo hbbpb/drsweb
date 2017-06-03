@@ -115,15 +115,17 @@ var config = function (env) {
       returner.plugins.push(new webpack.NamedModulesPlugin())
     } else if (typeof env.release !== 'undefined' && env.release) {
       returner.devServer = env.devServer
-      returner.plugins.push(new CleanPlugin("www", {
-        root: path.join(__dirname, "."),
-        dry: false,
-        verbose: false,
-        exclude: ["index.html"]
-      }))
-      returner.plugins.push(new UglifyJsPlugin())
+      // returner.plugins.push(new CleanPlugin("www", {
+      //   root: path.join(__dirname, "."),
+      //   dry: false,
+      //   verbose: false,
+      //   exclude: ["index.html"]
+      // }))
+      // returner.plugins.push(new UglifyJsPlugin())
     }
   }
+
+  console.log(JSON.stringify(returner))
 
   return returner
 }
