@@ -18,7 +18,7 @@ var WebpackDevServer = require('webpack-dev-server')
 var config = require('./webpack.config')(env)
 
 new WebpackDevServer(webpack(config), config.devServer)
-  .listen(env.port, 'localhost', (err) => {
+  .listen(env.port, 'drsweb.herokuapp.com', (err) => {
     if (err) {
       console.log(err)
     }
