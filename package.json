@@ -47,6 +47,7 @@
     "html-webpack-plugin": "^2.28.0",
     "uglifyjs-webpack-plugin": "^0.3.0",
     "clean-webpack-plugin": "^0.1.15",
-    "extract-text-webpack-plugin": "^2.1.0"
+    "extract-text-webpack-plugin": "^2.1.0",
+    "cheerio": "^0.22.0"
   }
 }
