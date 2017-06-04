@@ -193,6 +193,10 @@
 </script>
 
 <style scoped>
+    #app {
+        max-width: 400px;
+    }
+
     .title {
         height: 59px;
         color: white;
