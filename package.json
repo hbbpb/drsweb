@@ -4,6 +4,7 @@
   "description": "Brand new cordova project with framework7 - vue - webpack!",
   "scripts": {
     "start": "node server.js",
+    "dev": "cordova run browser -- --live-reload",
     "default": "echo \"There is no scripts you can run with npm run command.\" && exit 1"
   },
   "keywords": [
@@ -20,9 +21,7 @@
     "file-loader": "^0.10.1",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
-    "node-sass": "^4.5.3",
     "path": "^0.12.7",
-    "sass-loader": "^6.0.3",
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.13.2",
     "svg-url-loader": "^2.0.2",
