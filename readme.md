@@ -12,7 +12,6 @@
 - 后端
     - java 8
     - spring boot
-    - [GraphQL](https://www.gitbook.com/book/wanglihui/graphql/details)
     
 - 构建
     - [webpack 2.2.1](https://webpack.github.io/docs/)
@@ -22,4 +21,3 @@
     - Web
     - iOS
     - Android
-    
