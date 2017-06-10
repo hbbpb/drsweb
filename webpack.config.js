@@ -44,7 +44,15 @@ var config = function (env) {
         {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/, loader: 'file-loader', options: {name: '[name].[ext]?[hash]'}},
         {test: /\.svg$/, loader: 'url-loader'},
         {test: /\.s[ca]ss$/, loader: ['style-loader', 'css-loader', 'sass-loader']},
-        {test: /\.vue$/, loader: 'vue-loader'}
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+          options: {
+            loaders: {
+              js: 'babel-loader'
+            }
+          }
+        }
       ]
     },
 
