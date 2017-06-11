@@ -10,7 +10,8 @@ var path = require('path'),
 
   entryFile = path.join(__dirname, 'src/main.js'),
   devServerPort = 8081,
-  proxyTarget = 'http://localhost:3100'
+  // proxyTarget = 'http://localhost:3100'
+  proxyTarget = 'https://drs-api.herokuapp.com'
 
 var config = function (env) {
   console.log(JSON.stringify(env))
@@ -116,7 +117,8 @@ var config = function (env) {
         proxy: {
           '/api': {
             target: proxyTarget,
-            secure: false
+            secure: true,
+            changeOrigin: true
           }
         }
       }
