@@ -1,9 +1,6 @@
-FROM mhart/alpine-node:6.11.0
+FROM dmitry7887/alpine-node-git
 
 MAINTAINER Neo Li <hbbpbb@gmail.com>
-
-RUN apk add --update git && \
-  rm -rf /tmp/* /var/cache/apk/*
 
 ADD . /app
 WORKDIR /app
