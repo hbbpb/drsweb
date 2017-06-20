@@ -1,8 +1,11 @@
-FROM mhart/alpine-node:4.3
+FROM mhart/alpine-node:6.11.0
 
 MAINTAINER Neo Li <hbbpbb@gmail.com>
 
-COPY . /app/
+ADD . /app
+WORKDIR /app
+
+RUN npm install
 
 ENV NODE_ENV production
 ENV PORT 3000
