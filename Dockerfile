@@ -5,6 +5,7 @@ MAINTAINER Neo Li <hbbpbb@gmail.com>
 ADD . /app
 WORKDIR /app
 
+RUN apk update && apk upgrade && apk add curl bash git
 RUN npm install
 
 ENV NODE_ENV production
