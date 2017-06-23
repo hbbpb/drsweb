@@ -7,8 +7,8 @@ var env = {
     disableHostCheck: true,
     proxy: {
       '/api': {
-        target: 'https://drs-api.herokuapp.com',
-        secure: true,
+        target: 'http://pbkj-drsapi.daoapp.io',
+        secure: false,
         changeOrigin: true
       }
     }
